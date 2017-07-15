@@ -1,0 +1,128 @@
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:11px;
+    height:auto;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:auto;
+}
+
+.container{ /*Only parent is the App screen*/
+    position:relative;
+    margin:0px 5vw;
+    padding:0;
+    width:90vw;height:64px;
+    text-align:center;
+    overflow:hidden;
+    box-sizing:border-box;
+    background-color:lightcoral;
+    border: 1px outset darkred;
+}
+    .container:active{
+        background-color:coral;  border: 1px inset darkred;    }
+    .container:hover{
+        background-color:coral;  border: 1px inset darkred;    }
+/*Z-LEVELS
+ 
+ Container: 0
+ Block:3
+ Watermark:2
+ Item:-1
+ 
+ Conainer expanded:4
+ Item expanded:1
+ Watermarkm expanded:2
+ */
+.blocker{ /*Child of container, grandchild of App*/
+    position:absolute;
+    margin:0;
+    padding:0;
+    width:100%;height:100%;
+    background-color:grey;
+    display:inline-block;
+    top:0;bottom:0; /* vertical center */
+    left:0;right:0; /* horizontal center */
+    opacity:0.75;
+    z-index:3;
+    border: 1px solid blue;
+}
+.wmark{ /*First image of container, should prevent blatant stealing of second item*/
+    position:absolute;
+    margin-bottom:8px;
+    margin-right:8px;
+    width:5%;
+    bottom:0; right:0;
+    opacity:.33;
+    z-index:2;
+}
+.item{ /*Without .itemexpand activated in JS, media should not be clicked/played/paused*/
+    display:inline-block;
+    top: 56.25%;
+    transform: translateY(-33%);
+    -ms-transform: translateY(-33%);
+    -moz-transform: translateY(-33%);
+    -webkit-transform: translateY(-33%);
+    -o-transform: translateY(-33%);
+    margin:0;
+    width:100%;
+    background-color:green;
+    border:1px solid darkgreen;
+    z-index:-1;
+}
+    .item:active{
+        background-color:lightgreen;  border: 1px dashed green;    }
+    .item:hover{
+        background-color:lightgreen;  border: 1px dashed green;    }
+
+.containerexpand{ /*Click container to cause it (thus the media within) to cover the whole window*/
+    position: absolute;
+    margin:0;
+    width:100%;height:100%;
+    top:0;bottom:0;left:0;right:0;
+    opacity:1;
+    border:1px dotted darkgoldenrod;
+    background-color:orange;
+    z-index:4;
+}
+.wmarkexpand{ /*Must scale with media to prevent stealing*/
+    margin:8px;
+    width:auto;
+    max-height:20%;
+    max-width:20%;
+    border:1px dotted white;
+    /*IF THIS CAN COVER MOST OR ALL OF THE MEDIA, THEN YOU MUST BE ABLE TO CLICK THROUGH IT TO PLAY/PAUSE VIDEOS! BUT THIS IS TOO MANY STEPS*/
+}
+.itemexpand{ /*This class should toggle interaction, meaning media zooms in, video can be played*/
+    position: absolute;
+    top: 0;
+    transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    bottom:0;left:0;right:0;
+    width:100vw;height:56.25vw; /* height:width ratio = 9/16 = .5625  */
+    max-width:177.78vh;max-height:100vh; /* 16/9 = 1.778 */
+    margin:0;
+    object-fit: contain;
+    box-sizing:border-box;
+    z-index:1;
+    border:1px dotted darkgreen;
+    background: green;
+}

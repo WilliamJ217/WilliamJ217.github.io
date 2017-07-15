@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <title>Hello World</title>
+    </head>
+    
+    <body>
+        <div class="app">
+            <h1>Portfolio Website</h1>
+            <h2 class="container">Resume</h2>
+            <h2 class="container">Social</h2>
+            <h2 class="container">Contact</h2>
+            <b>images and vids go here
+                <!--IDEA for web and mobile:
+                 User clicks on a bar to expand vertically from center. (slide in anim???)
+                 This expansion occurs downwards from current location on screen (if possible).
+                 2nd click shrinks again to current location.
+                 To do this requires working around the video.
+                 Must be able to click within video area to shrink again.
+                 So to click video container should mean to reveal the video and play, 2nd click should shrink and cover the area.
+                 
+                 Menu on top bar should be frozen on top, always shown even scrolling (position:fixed;).
+                 IF YOU CAN FIGURE OUT HOW TO PLAY/PAUSE VIDS AND EXPAND/SHRINK AT THE SAME TIME, YOU CAN TAKE THE CHILDREN IFRAMES OUT OF THEIR CONTAINERS AND GIVE THEM THE CONTAINER CLASS.
+                 -->
+                <div class="container">
+                    <div class="blocker">Click to display</div>
+                    <img src="img/logo.png" class="item">
+                        <!--sample-->
+                        </div>
+                <div class="container">
+                    <!--cover the div in a solid thumbnail type to prevent playing before toggle-->
+                    <div class="blocker">Click to display</div>
+                    <img src="/Users/billstruwe/Documents/Portfolio/Wmark Wht Trsp Glw.jpg" class="wmark">
+                    <iframe id="video1" class="item" src="https://www.youtube.com/embed/vKdYjNzZTJg?enablejsapi=1&html5=1" frameborder="0" allowfullscreen tabindex="-1">
+                    </iframe>
+                </div>
+                <div class="container">
+                    <div class="blocker">Click to display</div>
+                    <img src="/Users/billstruwe/Documents/Portfolio/Wmark Wht Trsp Glw.jpg" class="wmark">
+                    <!--THE WATERMARK SHOULD STAY WITH THE MEDIA, SO THEY NEED TO BE CONTAINED TOGETHER-->
+                    <img src="/Users/billstruwe/Documents/Portfolio/3D Renders/RotW_in_thought_1.jpg" class="item">
+                        <!--image-->
+                </div>
+                <div class="container">
+                    <div class="blocker">Click to display</div>
+                    <img src="/Users/billstruwe/Documents/Portfolio/Wmark Wht Trsp Glw.jpg" class="wmark">
+                    <iframe class="item" src="https://www.youtube.com/embed/eQn3zk4ngVc?enablejsapi=1" frameborder="0" allowfullscreen tabindex="-1">
+                    </iframe>
+                </div>
+                <div class="container">
+                    <div class="blocker">Click to display</div>
+                    <img src="/Users/billstruwe/Documents/Portfolio/Wmark Wht Trsp Glw.jpg" class="wmark">
+                    <iframe class="item" src="https://www.youtube.com/embed/kK3HxF7z63A?enablejsapi=1"frameborder="0" allowfullscreen tabindex="-1">
+                    </iframe>
+                </div>
+                
+            </b><!--Images and vids here END-->
+        </div><!--App screen END-->
+    </body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</html>
